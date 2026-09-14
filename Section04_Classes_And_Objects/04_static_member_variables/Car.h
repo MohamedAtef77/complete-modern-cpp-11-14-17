@@ -1,0 +1,80 @@
+/**
+ * @file    Car.h
+ * @brief   Declares the Car class: a simple demo of encapsulating a car's
+ *          fuel level, speed, and passenger count behind member functions.
+ * @author  Mohamed Atef
+ * @date    2026-09-14
+ */
+
+#pragma once
+
+/*===========================================================================*
+ *                             U S E R  T Y P E S                            *
+ *===========================================================================*/
+/**
+ * @brief   Represents a car with fuel, speed, and passenger state.
+ */
+class Car
+{
+private:
+    double fuel{ 0.0 };
+    double speed{ 0.0 };
+    int passengers{ 0 };
+    static int totalCount;
+
+public:
+    /**
+     * @brief   Constructs a Car with fuel, speed, and passengers defaulted
+     *          via their non-static data member initializers, and
+     *          increments the live Car object count.
+     */
+    Car();
+
+    /**
+     * @brief   Constructs a Car with the given fuel, speed, and passengers,
+     *          and increments the live Car object count.
+     * @param   fuel        Initial fuel amount.
+     * @param   speed       Initial speed.
+     * @param   passengers  Initial passenger count.
+     */
+    Car(float fuel, double speed, int passengers);
+
+    /**
+     * @brief   Destroys the Car, printing a farewell message and
+     *          decrementing the live Car object count.
+     */
+    ~Car();
+
+    /**
+     * @brief   Sets the car's fuel level.
+     * @param   amount  New fuel amount.
+     */
+    void FillFuel(float amount);
+
+    /**
+     * @brief   Increases speed by one unit and consumes fuel accordingly.
+     */
+    void Accelerate(void);
+
+    /**
+     * @brief   Brings the car to a stop by resetting speed to zero.
+     */
+    void Brake(void);
+
+    /**
+     * @brief   Sets the number of passengers in the car.
+     * @param   count   New passenger count.
+     */
+    void AddPassengers(int count);
+
+    /**
+     * @brief   Prints the current fuel, speed, and passenger count.
+     */
+    void Dashboard(void);
+
+    /**
+     * @brief   Returns the number of Car objects currently alive.
+     * @return  Current live Car object count.
+     */
+    static int GetTotalCount(void);
+};
